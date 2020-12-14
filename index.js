@@ -1,7 +1,8 @@
 const express = require('express');
 const cors = require('cors');
+const api = require('./routes/index');
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 4000;
 const app = express();
 
 app.use(cors());
@@ -11,6 +12,8 @@ app.use(
     extended: true,
   })
 );
+
+app.use('/api', api);
 
 app.listen(port, (err) => {
   if (err) {
